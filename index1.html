@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Photography</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #2b7a0b;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .slider {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #2b7a0b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact form button {
+            padding: 10px;
+            background-color: #2b7a0b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact form button:hover {
+            background-color: #245d07;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+        <div class="slider">
+            <div class="slides">
+                <img src="image1.jpg" alt="Image 1">
+                <img src="image2.jpg" alt="Image 2">
+                <img src="image3.jpg" alt="Image 3">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="intro main">
+            <h1>Selamat Datang di Portofolio Fotografi Saya</h1>
+            <p>Saya mengabadikan keindahan alam dan momen yang penuh cerita melalui fotografi. Temukan karya-karya saya di galeri portofolio.</p>
+        </section>
+
+        <section id="portfolio" class="gallery main">
+            <h2>Portofolio Fotografi</h2>
+            <div class="gallery-grid">
+                <img src="image1.jpg" alt="Image 1">
+                <img src="image2.jpg" alt="Image 2">
+                <img src="image3.jpg" alt="Image 3">
+                <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+            </div>
+        </section>
+
+        <section id="about" class="about main">
+            <h2>Tentang Saya</h2>
+            <p>Hai, saya [Your Name], seorang fotografer yang terinspirasi oleh keindahan alam. Selama SMA, saya banyak mengeksplorasi dunia fotografi dan mengabadikan momen indah yang ada di sekitar saya. Saya percaya bahwa fotografi adalah cara untuk menghentikan waktu dan mengabadikan cerita yang tidak akan pernah terulang.</p>
+        </section>
+
+        <section id="contact" class="contact main">
+            <h2>Kontak Saya</h2>
+            <form action="#" method="post">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portfolio Photography. Dibuat dengan cinta oleh [Your Name]</p>
+    </footer>
+
+    <script>
+        // JavaScript untuk slider gambar otomatis di beranda
+        let index = 0;
+        const slides = document.querySelectorAll('.slides img');
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            index++;
+            if (index > slides.length) {
+                index = 1;
+            }
+            slides[index - 1].style.display = 'block';
+            setTimeout(showSlides, 3000); // Ganti gambar setiap 3 detik
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
